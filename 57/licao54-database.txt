@@ -1,0 +1,64 @@
+Enter password: ***
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 4
+Server version: 10.7.3-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use api_db
+Database changed
+MariaDB [api_db]> ALTER TABLE task ADD user_id INT NOT NULL,
+    -> ADD INDEX (user_id);
+Query OK, 0 rows affected (0.163 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [api_db]> describe task
+    -> ;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| id           | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name         | varchar(60) | YES  |     | NULL    |                |
+| priority     | int(11)     | YES  |     | NULL    |                |
+| is_completed | tinyint(1)  | YES  |     | NULL    |                |
+| user_id      | int(11)     | NO   | MUL | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.056 sec)
+
+MariaDB [api_db]> select *  from task
+    -> ;
++----+----------------+----------+--------------+---------+
+| id | name           | priority | is_completed | user_id |
++----+----------------+----------+--------------+---------+
+|  1 | Changed        |        8 |            0 |       0 |
+|  2 | Renew passport |        2 |            0 |       0 |
+|  3 | Paint wall     |     NULL |            1 |       0 |
+|  4 | Luis Carlos    |        4 |            1 |       0 |
+|  6 | luis           |     NULL |            0 |       0 |
++----+----------------+----------+--------------+---------+
+5 rows in set (0.045 sec)
+
+MariaDB [api_db]> select * from user
+    -> ;
++----+------+----------+--------------------------------------------------------------+----------------------------------+
+| id | name | username | password_hash                                                | api_key                          |
++----+------+----------+--------------------------------------------------------------+----------------------------------+
+|  1 | Luis | luis     | $2y$10$/LXk1ehS7Q1dpmTLcPPi0uwtAayVccJ/2z.Oxf71b97mSMJA/lfiO | 2b1688abf5711d0829089d003fd48594 |
++----+------+----------+--------------------------------------------------------------+----------------------------------+
+1 row in set (0.011 sec)
+
+MariaDB [api_db]> UPDATE task SET user_id=1
+    -> ;
+Query OK, 5 rows affected (0.005 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+MariaDB [api_db]> ALTER TABLE task
+    -> ADD FOREIGN KEY (user_id)
+    -> REFERENCES user(id)
+    -> ON DELETE CASCADE ON UPDATE CASCADE;
+Query OK, 5 rows affected (0.040 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [api_db]>

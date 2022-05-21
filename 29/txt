@@ -1,0 +1,32 @@
+Realizado a instalação do Database Maria DB
+site de configuação:
+https://techexpert.tips/pt-br/windows-pt-br/instalacao-do-mariadb-no-windows/
+https://mariadb.com/kb/pt-br/running-mariadb-from-the-source-directory/
+
+dowload para instalação
+https://mariadb.com/products/community-server/
+
+Passo um entrar no Maria DB
+
+A senha do usuário root é instalada para acessar use o comando
+mysql -uroot -p
+
+após o primeiro acesso, iria criar um novo banco de dados neste caso. 
+
+CREATE DATABASE nome;
+
+Após deve ser criado um usuário com todos os privilégios. 
+
+GRANT ALL PRIVILEGES ON nome.* TO nomeUser@localhost IDENTIFIED BY 'senha';
+
+ao acessar por este usuário, poderá usar o primeiro data base usado sem problemas. 
+
+USE nome
+
+********************************************************************************************
+
+
+
+
+
+

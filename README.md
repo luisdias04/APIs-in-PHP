@@ -1,2 +1,5 @@
 # APIs-in-PHP
 Use REST APIs from PHP, and create your own RESTful API using plain PHP, with API key and JWT token authentication
+
+ATÉ A LIÇÃO 46 FUNCIONOU TUDO CONFORME O CURSO API PARA CRUD. 
+À PARTIDA DA LIÇÃO DE NÚMERO 47, ESTAREMOS ENTRANTO NA PARTE DE AUTENTICAÇÕES. 

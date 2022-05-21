@@ -1,0 +1,7 @@
+A porta do Maria DB foi Configurada para 3307
+Então foi colocada no códico para acesso ao database. 
+
+logo irá para a lição 32
+
+* arquivo env
+comando: composer require vlucas/phpdotenv

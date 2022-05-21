@@ -1,0 +1,32 @@
+A porta do Maria DB foi Configurada para 3307
+Então foi colocada no códico para acesso ao database. 
+
+logo irá para a lição 32
+
+esta lição 32 
+utilizado a configuração do arquivo .env 
+
+após instalação do pacote vlucas/phpdotenv
+
+47****
+48
+CRIAR UM DATA BASE PARA CONTROLE DE ACESSO. 
+
+CREATE TABLE user (
+id INT NOT NULL AUTO_INCREMENT,
+name VARCHAR(128) NOT NULL, 
+username VARCHAR(128) NOT NULL,
+password_hash VARCHAR(255) NOT NULL,
+api_key VARCHAR(32) NOT NULL,
+PRIMARY KEY (id),
+UNIQUE (username),
+UNIQUE (api_key)
+);
+
+VERIFICAR 
+DESCRIBE user;
+OU 
+SHOW indexes FROM user;
+
+ir em:
+www.picocss.com
